@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAssist-AI - Your Academic Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>EduAssist-AI</h1>
+            </div>
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-tab="chat">
+                    <i class="fas fa-comments"></i> Chat
+                </button>
+                <button class="tab-btn" data-tab="homework">
+                    <i class="fas fa-book"></i> Homework
+                </button>
+                <button class="tab-btn" data-tab="quiz">
+                    <i class="fas fa-question-circle"></i> Quiz
+                </button>
+                <button class="tab-btn" data-tab="study">
+                    <i class="fas fa-calendar-alt"></i> Study Plan
+                </button>
+                <button class="tab-btn" data-tab="writing">
+                    <i class="fas fa-pen"></i> Writing
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chat Tab -->
+            <div class="tab-content active" id="chat">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Hello! I'm EduAssist-AI, your personal academic companion. I'm here to help you with:</p>
+                                <ul>
+                                    <li>📚 Homework and assignments</li>
+                                    <li>📝 Writing and essays</li>
+                                    <li>🧮 Math problems</li>
+                                    <li>🔬 Research projects</li>
+                                    <li>📊 Study planning</li>
+                                    <li>❓ Practice quizzes</li>
+                                </ul>
+                                <p>How can I help you learn today?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <div class="input-group">
+                            <input type="text" id="chatInput" placeholder="Ask me anything about your studies..." maxlength="500">
+                            <button id="sendBtn" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="quick-btn" data-prompt="Help me understand this concept">
+                                <i class="fas fa-lightbulb"></i> Explain Concept
+                            </button>
+                            <button class="quick-btn" data-prompt="I need help with my homework">
+                                <i class="fas fa-book-open"></i> Homework Help
+                            </button>
+                            <button class="quick-btn" data-prompt="Create a study schedule for me">
+                                <i class="fas fa-clock"></i> Study Schedule
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Homework Tab -->
+            <div class="tab-content" id="homework">
+                <div class="form-container">
+                    <h2><i class="fas fa-book"></i> Homework Helper</h2>
+                    <form id="homeworkForm">
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <select id="subject">
+                                <option value="">Select Subject</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                                <option value="History">History</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="level">Academic Level:</label>
+                            <select id="level">
+                                <option value="Elementary">Elementary</option>
+                                <option value="Middle School">Middle School</option>
+                                <option value="High School" selected>High School</option>
+                                <option value="College">College</option>
+                                <option value="University">University</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="homeworkQuestion">Your Question:</label>
+                            <textarea id="homeworkQuestion" placeholder="Paste your homework question here..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-search"></i> Get Help
+                        </button>
+                    </form>
+                    <div id="homeworkResult" class="result-container"></div>
+                </div>
+            </div>
+
+            <!-- Quiz Tab -->
+            <div class="tab-content" id="quiz">
+                <div class="form-container">
+                    <h2><i class="fas fa-question-circle"></i> Quiz Generator</h2>
+                    <form id="quizForm">
+                        <div class="form-group">
+                            <label for="quizTopic">Topic:</label>
+                            <input type="text" id="quizTopic" placeholder="e.g., World War II, Algebra, Cell Biology" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="difficulty">Difficulty:</label>
+                                <select id="difficulty">
+                                    <option value="easy">Easy</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="questionCount">Questions:</label>
+                                <select id="questionCount">
+                                    <option value="3">3 Questions</option>
+                                    <option value="5" selected>5 Questions</option>
+                                    <option value="10">10 Questions</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-magic"></i> Generate Quiz
+                        </button>
+                    </form>
+                    <div id="quizResult" class="result-container"></div>
+                </div>
+            </div>
+
+            <!-- Study Plan Tab -->
+            <div class="tab-content" id="study">
+                <div class="form-container">
+                    <h2><i class="fas fa-calendar-alt"></i> Study Plan Generator</h2>
+                    <form id="studyForm">
+                        <div class="form-group">
+                            <label for="subjects">Subjects (comma-separated):</label>
+                            <input type="text" id="subjects" placeholder="e.g., Math, Science, English, History" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeAvailable">Available Study Time:</label>
+                            <select id="timeAvailable">
+                                <option value="1 hour per day">1 hour per day</option>
+                                <option value="2 hours per day" selected>2 hours per day</option>
+                                <option value="3 hours per day">3 hours per day</option>
+                                <option value="4+ hours per day">4+ hours per day</option>
+                                <option value="Weekends only">Weekends only</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goals">Study Goals:</label>
+                            <textarea id="goals" placeholder="e.g., Prepare for final exams, improve grades, understand difficult concepts" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-calendar-plus"></i> Create Study Plan
+                        </button>
+                    </form>
+                    <div id="studyResult" class="result-container"></div>
+                </div>
+            </div>
+
+            <!-- Writing Tab -->
+            <div class="tab-content" id="writing">
+                <div class="form-container">
+                    <h2><i class="fas fa-pen"></i> Writing Assistant</h2>
+                    <form id="writingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="writingType">Type:</label>
+                                <select id="writingType">
+                                    <option value="essay">Essay</option>
+                                    <option value="report">Report</option>
+                                    <option value="research paper">Research Paper</option>
+                                    <option value="creative writing">Creative Writing</option>
+                                    <option value="email">Email</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedbackType">Feedback Type:</label>
+                                <select id="feedbackType">
+                                    <option value="general">General</option>
+                                    <option value="grammar">Grammar</option>
+                                    <option value="structure">Structure</option>
+                                    <option value="clarity">Clarity</option>
+                                    <option value="style">Style</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="writingText">Your Text:</label>
+                            <textarea id="writingText" placeholder="Paste your writing here for feedback..." rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-check-circle"></i> Get Feedback
+                        </button>
+                    </form>
+                    <div id="writingResult" class="result-container"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Thinking...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
